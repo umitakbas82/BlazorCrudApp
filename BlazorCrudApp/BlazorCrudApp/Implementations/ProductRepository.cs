@@ -34,19 +34,25 @@ namespace BlazorCrudApp.Implementations
                 
                     }
 
-        public Task<List<Product>> GetAllProductsAsync()
+        public async Task<List<Product>> GetAllProductsAsync() => await appDbContext.Products.ToListAsync();
+        
+           
+        
+
+        public async Task<Product> GetProductByIdAsync(int productId)
         {
-            throw new NotImplementedException();
+            var product = await appDbContext.Products.FirstOrDefaultAsync(_ => _.Id == productId);
+            if(product is null) return null!; 
+            return product;
         }
 
-        public Task<Product> GetProductByIdAsync(int productId)
+        public async Task<Product> UpdateProductAsync(Product model)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Product> UpdateProductAsync(Product model)
-        {
-            throw new NotImplementedException();
+            var product = await appDbContext.Products.FirstOrDefaultAsync(_ => _.Id == model.Id);
+            if(product is null) return null!;
+            product.Name = model.Name; ;
+            product.Quantity= model.Quantity;
+            return await appDbContext.Products.FirstOrDefaultAsync(_ => _.Id == model.Id);
         }
     }
 }

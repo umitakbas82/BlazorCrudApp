@@ -1,7 +1,9 @@
 using BlazorCrudApp.Client.Pages;
 using BlazorCrudApp.Components;
 using BlazorCrudApp.Data;
+using BlazorCrudApp.Implementations;
 using Microsoft.EntityFrameworkCore;
+using SharedLibrary.ProductRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +12,12 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnetcion") ?? throw new InvalidOperationException("Wooah!! Connection Not Found"));
 });
+builder.Services.AddScoped<IProductRepository,ProductRepository>();
 
 var app = builder.Build();
 
@@ -30,7 +34,7 @@ else
 }
 
 app.UseHttpsRedirection();
-
+app.MapControllers();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
