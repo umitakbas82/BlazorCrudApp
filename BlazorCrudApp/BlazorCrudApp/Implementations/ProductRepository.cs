@@ -24,10 +24,15 @@ namespace BlazorCrudApp.Implementations
             return newDataAdded;
         }
 
-        public Task<Product> DeleteProductAsync(int productId)
+        public async Task<Product> DeleteProductAsync(int productId)
         {
-            throw new NotImplementedException();
-        }
+            var product = await appDbContext.Products.FirstOrDefaultAsync(_ => _.Id == productId);
+            if (product is null) return null!;
+            appDbContext.Products.Remove(product);
+            await appDbContext.SaveChangesAsync();
+            return product;
+                
+                    }
 
         public Task<List<Product>> GetAllProductsAsync()
         {
