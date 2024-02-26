@@ -6,7 +6,9 @@
              <div class="card">
                 @if (Products.Count > 0)
                 {
-                    <div class="card-header">Product List</div>
+                    <div class="card-header">Product Lis
+                     <button class="btn btn-primary" @onclick= "NavigateToAddProductPage"> <i class="oi oi-plus"></i></button>       
+                    </div>
                     <div class="card-body">
                         <table class="table table-stripped">
                             <thead>
@@ -58,4 +60,8 @@
     protected override async Task OnInitializedAsync(){
         await LoadProducts();
     }
- }
+
+    private void NavigateToAddProductPage(){
+        NavigationManager.NavigateTo("manage-product");
+    }
+}

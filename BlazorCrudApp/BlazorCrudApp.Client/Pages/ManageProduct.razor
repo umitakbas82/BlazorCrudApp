@@ -1,0 +1,22 @@
+﻿@page "/manage-product"
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Add Product</div>
+                <div class="card-body">
+                    <EditForm Model="ProductModel" OnValidSubmit="HandleSave" FormName="manageProduct">
+                        <div class="form-group">
+
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code{
+    private Product ProductMode{get;set;}=new ();
+}
