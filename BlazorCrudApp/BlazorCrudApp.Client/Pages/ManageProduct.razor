@@ -7,8 +7,12 @@
                 <div class="card-header">Add Product</div>
                 <div class="card-body">
                     <EditForm Model="ProductModel" OnValidSubmit="HandleSave" FormName="manageProduct">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
                         <div class="form-group">
-
+                           <label class="form-label">Product Name</label>
+                           <InputText @blind-Value="ProductModel.Name" class="form-control"></InputText>
+                            <ValidationMessage For="()=>ProductModel.Name"></ValidationMessage>
                         </div>
                     </EditForm>
                 </div>
