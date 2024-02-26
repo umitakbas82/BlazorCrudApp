@@ -21,7 +21,7 @@ To run this project, the following prerequisites must be met:
 
 ## Usage
 
-Once the application is running, navigate to [http://localhost:5009](https://localhost:7171) in your browser to access the application. You can then perform CRUD operations within the application.
+Once the application is running, navigate to http://localhost:yourport in your browser to access the application. You can then perform CRUD operations within the application.
 
 ## Technologies
 
