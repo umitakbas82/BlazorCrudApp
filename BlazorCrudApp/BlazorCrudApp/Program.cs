@@ -19,6 +19,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 
+builder.Services.AddScoped(http => new HttpClient
+{
+    BaseAddress = new Uri(builder.Configuration.GetSection("BaseAddress").Value!)
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

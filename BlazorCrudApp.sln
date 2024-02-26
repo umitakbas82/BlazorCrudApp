@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudApp", "BlazorCrudApp\BlazorCrudApp\BlazorCrudApp.csproj", "{507EB59E-12D4-4BEA-BEB0-CDB340351D37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCrudApp", "BlazorCrudApp\BlazorCrudApp\BlazorCrudApp.csproj", "{507EB59E-12D4-4BEA-BEB0-CDB340351D37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorCrudApp.Client", "BlazorCrudApp\BlazorCrudApp.Client\BlazorCrudApp.Client.csproj", "{6BF2A5F1-D90B-41BA-9B7F-0FFDA00C5657}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCrudApp.Client", "BlazorCrudApp\BlazorCrudApp.Client\BlazorCrudApp.Client.csproj", "{6BF2A5F1-D90B-41BA-9B7F-0FFDA00C5657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibrary", "SharedLibrary\SharedLibrary.csproj", "{749AE013-7070-437D-B722-D9F3C70FBA18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedLibrary", "SharedLibrary\SharedLibrary.csproj", "{749AE013-7070-437D-B722-D9F3C70FBA18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
