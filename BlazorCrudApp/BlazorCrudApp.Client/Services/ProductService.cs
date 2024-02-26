@@ -14,29 +14,37 @@ namespace BlazorCrudApp.Client.Services
 
         public async Task<Product> AddProductAsync(Product model)
         {
-            var product = await httpClient.PostAsJsonAsync("api/Product", model);
+            var product = await httpClient.PostAsJsonAsync("api/Product/Add-Product", model);
             var response = await product.Content.ReadFromJsonAsync<Product>();
             return response!;
         }
 
-        public Task<Product> DeleteProductAsync(int productId)
+        public async Task<Product> DeleteProductAsync(int productId)
         {
-            throw new NotImplementedException();
+            var products = await httpClient.DeleteAsync("api/Product/Delete-Product/{productId}");
+            var response =await products.Content.ReadFromJsonAsync<Product>();
+            return response!;
         }
 
-        public Task<List<Product>> GetAllProductsAsync()
+        public async Task<List<Product>> GetAllProductsAsync()
         {
-            throw new NotImplementedException();
+            var products = await httpClient.GetAsync("api/Product/All-Product");
+            var response =await products.Content.ReadFromJsonAsync<List<Product>>();
+            return response!;
         }
 
-        public Task<Product> GetProductByIdAsync(int productId)
+        public async Task<Product> GetProductByIdAsync(int productId)
         {
-            throw new NotImplementedException();
+            var products = await httpClient.GetAsync("api/Product/Single-Product/{productId}");
+            var response = await products.Content.ReadFromJsonAsync<Product>();
+            return response!;
         }
 
-        public Task<Product> UpdateProductAsync(Product model)
+        public async Task<Product> UpdateProductAsync(Product model)
         {
-            throw new NotImplementedException();
+            var product = await httpClient.PutAsJsonAsync("api/Product/Update-Product", model);
+            var response=await product.Content.ReadFromJsonAsync<Product>();
+            return response!;
         }
     }
 }
